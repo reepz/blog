@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Blog
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        %ul.nav.navbar-nav
+          %li
+            =link_to 'Home', root_path
+          %li
+            =link_to 'About', static_pages_about_path
+          %li
+            =link_to 'Contact', static_pages_contact_path
+          - if user_signed_in?
+            %li
+              = link_to 'Sing out', destroy_user_session_path, method: :delete
+    %header
+      .container
+        %h1 Deca(w)est
+        %p Digesting reality. In small chunks.
+    .container
+      %p.notice= notice
+      %p.alert= alert
+    .container
+      = yield
