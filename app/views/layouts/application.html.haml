@@ -9,20 +9,28 @@
   %body
     %nav.navbar.navbar-default.navbar-fixed-top
       .container-fluid
-        %ul.nav.navbar-nav
-          %li
-            =link_to 'Home', root_path
-          %li
-            =link_to 'About', static_pages_about_path
-          %li
-            =link_to 'Contact', static_pages_contact_path
-          - if user_signed_in?
-            %li
-              = link_to 'Sing out', destroy_user_session_path, method: :delete
+        .row
+        %nav.navbar.navbar-inverse
+          .container-fluid
+            .navbar-header
+              %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.navbar-brand{:href => root_path } Livinity
+            #myNavbar.collapse.navbar-collapse
+              %ul.nav.navbar-nav
+                %li
+                  =link_to 'About', static_pages_about_path
+                %li
+                  =link_to 'Contact', static_pages_contact_path
+                - if user_signed_in?
+                  %li
+                    = link_to 'Sing out', destroy_user_session_path, method: :delete
     %header
       .container
-        %h1 Deca(w)est
-        %p Digesting reality. In small chunks.
+        %h1 Livinity
+        %p Things I want to remember.
     .container
       %p.notice= notice
       %p.alert= alert
