@@ -4,7 +4,7 @@
 .posts-wrapper
   - @posts.each do |post|
     .post
-      %h2
+      %h2{class: "title"}
         = post.title
         %hr
       = raw post.body
