@@ -1,6 +1,10 @@
-
-- Dir["./public/ringtones/*"].each do |file|
-  - file = file + " "
-  - file = file[9...-1]
-  = link_to file, root_url+file
-  <br>
+-# bad algorithm, logic in view, removes '/public from path'
+.ringtones-wrapper
+  - @index = 1
+  - Dir["./public/ringtones/*"].each do |file|
+    - file = file + " "
+    - link_name = file[19...-1]
+    - file = file[9...-1]
+    = link_to "#{@index}. #{link_name}", root_url+file
+    - @index += 1
+    <br>
