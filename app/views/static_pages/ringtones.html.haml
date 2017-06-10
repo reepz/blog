@@ -1,0 +1,6 @@
+
+- Dir["./public/ringtones/*"].each do |file|
+  - file = file + " "
+  - file = file[9...-1]
+  = link_to file, root_url+file
+  <br>

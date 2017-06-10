@@ -6,6 +6,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css?family=Inconsolata", :rel => "stylesheet"}/
   %body
     %nav.navbar.navbar-default.navbar-fixed-top
       .container-fluid
@@ -23,6 +24,8 @@
               %ul.nav.navbar-nav
                 %li
                   =link_to 'About', static_pages_about_path
+                %li
+                  =link_to 'Ringtones', static_pages_ringtones_path
                 %li
                   =link_to 'Contact', static_pages_contact_path
                 - if user_signed_in?
