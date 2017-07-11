@@ -3,7 +3,7 @@ var conditions = ['clear sky', 'few clouds', 'scattered clouds', 'broken clouds'
 var city;
 var country;
 
- $.getJSON("http://ip-api.com/json", function(json) {
+ $.getJSON("https://ip-api.com/json", function(json) {
 
    country = json.country;
    city = json.city;
@@ -17,7 +17,7 @@ var key = '5b9f5435728ffd57f83e2571b497d1d2';
 var temperature;
 var description;
 
-$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + key, function(json) {
+$.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + key, function(json) {
 
  temperature = json.main.temp;
  description = json.weather['0'].description;
