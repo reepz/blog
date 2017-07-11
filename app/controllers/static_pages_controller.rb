@@ -9,4 +9,12 @@ class StaticPagesController < ApplicationController
   def ringtones
 
   end
+
+  def quotes
+
+  end
+
+  def weather
+
+  end
 end
