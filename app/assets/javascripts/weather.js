@@ -17,11 +17,13 @@ var key = '5b9f5435728ffd57f83e2571b497d1d2';
 var temperature;
 var description;
 
-$.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + key, function(json) {
+$(document).ready(function() {
+  $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + key, function(json) {
 
- temperature = json.main.temp;
- description = json.weather['0'].description;
+    temperature = json.main.temp;
+    description = json.weather['0'].description;
 
- $("#temperature").text("Current temperature: " + temperature);
- $("#description").text(description);
+    $("#temperature").text("Current temperature: " + temperature);
+    $("#description").text(description);
+  });
 });
