@@ -3,7 +3,7 @@ var conditions = ['clear sky', 'few clouds', 'scattered clouds', 'broken clouds'
 var city;
 var country;
 
- $.getJSON("https://ip-api.com/json", function(json) {
+ $.getJSON("http://ip-api.com/json", function(json) {
 
    country = json.country;
    city = json.city;
