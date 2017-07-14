@@ -5,7 +5,7 @@
 
 <%= javascript_tag do %>
   var temperature;
-  $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat=52&lon=21?callback=?", function(json) {
+  $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat=52&lon=21?output=jsonp&callback=?", function(json) {
     temperature = json.main.temp;
     $("#temperature").append(temperature);
     console.log(temperature);
