@@ -13,7 +13,7 @@ var temperature;
    lat = json.lat;
    lon = json.lon;
 
-   $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + lon "?output=jsonp&callback=?", function(json) {
+   $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + lon + "?output=jsonp&callback=?", function(json) {
      temperature = json.main.temp;
      $("#temperature").append(temperature);
      console.log(temperature);
