@@ -18,6 +18,8 @@ var temperature;
      $("#temperature").append(temperature);
      $("#description").append(city);
      console.log(temperature);
+     console.log(lat);
+     console.log(lon);
    });
 
  });
