@@ -13,7 +13,7 @@ var temperature;
    lat = json.lat;
    lon = json.lon;
 
-   $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + lon + "?output=jsonp&callback=?", function(jsonp) {
+   $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + lon, function(jsonp) {
      temperature = jsonp.main.temp;
      $("#temperature").append(temperature);
      $("#description").append(city);
@@ -21,5 +21,15 @@ var temperature;
      console.log(lat);
      console.log(lon);
    });
+
+      //
+      // $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=35&lon=19&APPID=5b9f5435728ffd57f83e2571b497d1d2", function(jsonp) {
+      //   temperature = jsonp.main.temp;
+      //   $("#temperature").append(temperature);
+      //   $("#description").append(city);
+      //   console.log(temperature);
+      //   console.log(lat);
+      //   console.log(lon);
+      // });
 
  });
