@@ -1,11 +1,10 @@
-var conditions = ['clear sky', 'few clouds', 'scattered clouds', 'broken clouds', 'shower rain', 'rain', 'thunderstorm', 'snow', 'mist']
-
 var city;
 var country;
 var lat;
 var lon;
 
 var temperature;
+var key = "723c7e7a4559bfac33ca41ae731e3f29";
 
 navigator.geolocation.getCurrentPosition(function(position) {
   lat = position.coords.latitude;
@@ -13,10 +12,11 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
   $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + lon, function(jsonp) {
     temperature = jsonp.main.temp;
-    $("#temperature").append(temperature);
-    $("#description").append(city);
-    console.log(temperature);
-    console.log(lat);
-    console.log(lon);
+    $("#temperature").text("Current temperature in your location: " + temperature);
   });
+
+  $.getJSON("https://api.darksky.net/forecast/" + key + "/" + lat + "," + lon, function(data) {
+    $("#description").text(data.currently.summary);
+  });
+
 });
