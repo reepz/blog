@@ -1,4 +1,7 @@
-%h1 Local Weather
-#temperature
-%button#converter Convert unit
-#description
+#weather-wrapper
+  %h1 Local Weather
+  #description
+  .temperature-wrapper
+    #temperature
+    #converter
+      = link_to "C", "#", id: "converter-link"

@@ -2,6 +2,8 @@
 @import "bootstrap";
 @import "posts";
 @import "ringtones";
+@import "weather";
+@import "quotes";
 
 body {
   overflow: scroll;
@@ -47,9 +49,21 @@ header {
 }
 
 .posts-wrapper {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.8);
   .title {
     color: #b38f00;
+  }
+}
+
+.content-wrapper {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  // text-align: center;
+  color: white;
+  font-size: 1.4em;
+  // text-align: center;
+  h1 {
+    margin-top: 0;
+    margin-bot: 10px;
   }
 }

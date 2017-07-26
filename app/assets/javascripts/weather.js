@@ -7,12 +7,12 @@ var temperature;
 var unit;
 
 function convertTemperature() {
-  if (unit === 'celsius') {
+  if (unit === 'C') {
     temperature = (temperature * 9 / 5 + 32);
-    unit = 'farhenheit';
+    unit = 'F';
   } else {
-    temperature = ((temperature - 32) * 5 / 9);
-    unit = 'celsius';
+    temperature = Math.floor(((temperature - 32) * 5 / 9));
+    unit = 'C';
   }
 }
 
@@ -22,17 +22,20 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
   $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + lon, function(jsonp) {
     temperature = Math.floor(jsonp.main.temp);
-    unit = 'celsius';
+    unit = 'C';
     city = jsonp.name;
-    $("#temperature").text("Current temperature in " + city + ": " + temperature + " " + unit);
-    $("#description").text(jsonp.weather[0].description);
+    console.log(jsonp);
+    $("#temperature").text("Current temperature in " + city + ": " + temperature);
+    $("#description").html("<img src=" + jsonp.weather[0].icon + ">");
   });
 
 });
 
 $(document).ready(function() {
-  $("#converter").click(function() {
+  $("#converter-link").click(function(event) {
+    event.preventDefault();
     convertTemperature();
-    $("#temperature").text("Current temperature in " + city + ": " + temperature + " " + unit);
+    $("#temperature").text("Current temperature in " + city + ": " + temperature);
+    $("#converter-link").text(unit);
   });
 });

@@ -1,0 +1,36 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .row
+    %nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          -# %a.navbar-brand{:href => root_path } Livinity
+          = link_to 'Home', root_path, class: 'navbar-brand'
+        #myNavbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'About', static_pages_about_path
+            %li
+              = link_to 'Contact', static_pages_contact_path
+            - if user_signed_in?
+              %li
+                = link_to 'Log out', destroy_user_session_path, method: :delete
+          %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Apps
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Ringtones', static_pages_ringtones_path
+                %li
+                  = link_to 'Weather', static_pages_weather_path, id: "weather-link", "data-turbolinks": "false"
+                %li
+                  = link_to 'Quotes', static_pages_quotes_path, id: "quotes-link", "data-turbolinks": "false"
+                %li.divider{:role => "separator"}
+                %li
+                  %a{:href => "#"} Separated link

@@ -8,39 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/css?family=Inconsolata", :rel => "stylesheet"}/
   %body
-    %nav.navbar.navbar-default.navbar-fixed-top
-      .container-fluid
-        .row
-        %nav.navbar.navbar-inverse
-          .container-fluid
-            .navbar-header
-              %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
-                %span.icon-bar
-                %span.icon-bar
-                %span.icon-bar
-              -# %a.navbar-brand{:href => root_path } Livinity
-              = link_to 'Home', root_path, class: 'navbar-brand'
-            #myNavbar.collapse.navbar-collapse
-              %ul.nav.navbar-nav
-                %li
-                  =link_to 'About', static_pages_about_path
-                %li
-                  =link_to 'Ringtones', static_pages_ringtones_path
-                %li
-                  =link_to 'Weather', static_pages_weather_path, id: "weather-link", "data-turbolinks": "false"
-                %li
-                  =link_to 'Contact', static_pages_contact_path
-                %li
-                  =link_to 'Quotes', static_pages_quotes_path, id: "quotes-link", "data-turbolinks": "false"
-                - if user_signed_in?
-                  %li
-                    = link_to 'Log out', destroy_user_session_path, method: :delete
-    %header
-      .container
-        %h1 Conspiratorium
-        %p Alternative outcomes
-    .container
-      %p.notice= notice
-      %p.alert= alert
-    .container
+    = render 'layouts/navbar'
+    = render 'layouts/header'
+    .container.content-wrapper
       = yield
